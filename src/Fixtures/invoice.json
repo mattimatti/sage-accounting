@@ -1,0 +1,25 @@
+{
+    "contact_id": "f722559c7e1d11e8a1b806d27594849a",
+    "date": "16-07-2018",
+    "invoice_lines": [
+    	{
+			"description": "a single invoice line",
+	        "ledger_account_id": "1443cdabf24611e7b587065b8ec10ed1",
+	        "unit_price": 30.00,
+	        "quantity": 3,
+	        "tax_rate_id": "FR_STANDARD"
+    	},
+        {
+			"description": "the second invoice line",
+	        "ledger_account_id": "1443cdabf24611e7b587065b8ec10ed1",
+	        "unit_price": 10.00,
+	        "quantity": 1,
+	        "tax_rate_id": "FR_STANDARD"
+    	}
+    ],
+    "main_address": {
+        "city": "Lecco",
+        "region": "Italy",
+        "postal_code": "23900"
+    }
+}
