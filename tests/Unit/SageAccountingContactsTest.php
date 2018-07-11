@@ -106,10 +106,12 @@ class SageAccountingContactsTest extends SageAccountingBaseTest
     /** @test */
     public function do_not_run_if_run_can_delete_all_sage_contacts()
     {
-        (new Contact($this->api))->all()->first();
-        (new Contact($this->api))->all()->each(function ($contact) {
-            $contact->destroy();
-        });
-        $this->object = null;
+        // (new Contact($this->api))->all()->first();
+        // (new Contact($this->api))->all()->each(function ($contact) {
+        //     $contact->destroy();
+        // });
+        // $this->object = null;
+
+        $this->assertTrue(true);
     }
 }

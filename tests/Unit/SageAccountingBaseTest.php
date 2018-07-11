@@ -22,16 +22,16 @@ abstract class SageAccountingBaseTest extends TestCase
     public function getSageApi()
     {
         if (! $this->api) {
-            $auth = new Auth(getenv('SAGE_ACCOUNTING_CLIENT_ID'), getenv('SAGE_ACCOUNTING_CLIENT_SECRET'));
+            $auth = new Auth(getenv('SAGE_CLIENT_ID'), getenv('SAGE_CLIENT_SECRET'));
             $auth->setAuthKeys([
-                "access_token"      => getenv('TEST_ACCESS_TOKEN'),
-                "refresh_token"     => getenv('TEST_REFRESH_TOKEN'),
+                "access_token"      => getenv('SAGE_ACCESS_TOKEN'),
+                "refresh_token"     => getenv('SAGE_REFRESH_TOKEN'),
             ], [
-                "country"           => getenv('TEST_COUNTRY'),
-                "resource_owner_id" => getenv('TEST_RESOURCE_OWNER_ID'),
-                "subscription_id"   => getenv('SAGE_ACCOUNTING_SUBSCRIPTION_ID'),
+                "country"           => getenv('SAGE_COUNTRY'),
+                "resource_owner_id" => getenv('SAGE_RESOURCE_OWNER_ID'),
+                "subscription_id"   => getenv('SAGE_SUBSCRIPTION_ID'),
             ]);
-            $this->api = new Api($auth, 'ES');
+            $this->api = new Api($auth, getenv('SAGE_COUNTRY'));
         }
         return $this->api;
     }
@@ -41,7 +41,7 @@ abstract class SageAccountingBaseTest extends TestCase
         if ($this->object) {
             $this->object->destroy();
         }
-        if ($this->api->auth->access_token != getenv('TEST_ACCESS_TOKEN')) {
+        if ($this->api->auth->access_token != getenv('SAGE_ACCESS_TOKEN')) {
             dd("UPDATE .env tokens to access_token: {$this->api->auth->access_token} and refresh_token: {$this->api->auth->refresh_token}");
         }
         parent::tearDown();

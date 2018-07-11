@@ -8,6 +8,10 @@ use RevoSystems\SageAccounting\SObject;
 class Contact extends SObject
 {
     const RESOURCE_NAME = "contacts";
+
+    const CUSTOMER = 'CUSTOMER';
+    const VENDOR = 'VENDOR';
+
     protected $fields   = [
         "name"                              => ["required" => true, "type" => "string()"            ],
         "contact_type_ids"                  => ["required" => true, "type" => "array"               ],
